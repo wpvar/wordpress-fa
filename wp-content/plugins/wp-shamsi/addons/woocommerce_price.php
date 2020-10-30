@@ -24,7 +24,7 @@ class WPSH_Addon_Woocommerce_Price extends WPSH_Addons
         // نامک افزودنی - به انگلیسی
         $slug = 'woo_price';
         // نسخه افزودنی
-        $version = '1.0.1';
+        $version = '1.0.0';
         // نام افزودنی
         $name = __('فارسی سازی قیمت ووکامرس', 'wpsh');
         // توضیحات افزودنی
@@ -35,8 +35,6 @@ class WPSH_Addon_Woocommerce_Price extends WPSH_Addons
         $website = 'https://wpvar.com';
         // صفحه معرفی افزودنی برای کسب اطلاعات بیشتر
         $addon_home = 'https://wpvar.com/wp-shamsi';
-        // آیا افزودنی به صورت پیشفرض فعال باشد
-        $is_active = true;
 
         $wpsh_addon[] = array(
             'slug' => $slug,
@@ -46,11 +44,10 @@ class WPSH_Addon_Woocommerce_Price extends WPSH_Addons
             'author' => $author,
             'website' => $website,
             'addon_home' => $addon_home,
-            'is_active' => $is_active,
 
         );
 
-        if (!parent::validate($slug, $is_active))
+        if (!parent::validate($slug))
         {
             return false;
             die();

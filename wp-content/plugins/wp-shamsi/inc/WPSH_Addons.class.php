@@ -29,7 +29,7 @@ class WPSH_Addons extends WPSH_Core
         $wpsh_addon = array();
         foreach (glob(WPSH_PATH . 'addons/*.php') as $filename)
         {
-            include_once $filename;
+            include $filename;
 
         }
     }
@@ -44,10 +44,9 @@ class WPSH_Addons extends WPSH_Core
      * @param string $slug Slug of addon.
      * @return bool return true or false.
      */
-    public function validate($slug, $default)
+    public function validate($slug)
     {
-
-        $validate = parent::option($slug, true, $default);
+        $validate = parent::option($slug, true);
 
         return $validate;
     }
