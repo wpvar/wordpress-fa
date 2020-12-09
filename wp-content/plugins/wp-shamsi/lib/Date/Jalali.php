@@ -1,7 +1,7 @@
 <?php
 /*
 * Copyright Mohsen Shafiei released under the MIT license
-* https://github.com/m-jch/Date/blob/master/LICENSE
+* See license.txt
 */
 
 namespace WpshDate;
@@ -59,7 +59,8 @@ class WPSH_Jalali extends WPSH_DateAbstract
      *
      * @var array
      */
-    protected $format_D = array(self::SUNDAY => 'یکش', self::MONDAY => 'دوش', self::TUESDAY => 'سشن', self::WEDNESDAY => 'چها', self::THURSDAY => 'پنج', self::FRIDAY => 'جمع', self::SATURDAY => 'شنب');
+    //protected $format_D = array(self::SUNDAY => 'یکش', self::MONDAY => 'دوش', self::TUESDAY => 'سشن', self::WEDNESDAY => 'چها', self::THURSDAY => 'پنج', self::FRIDAY => 'جمع', self::SATURDAY => 'شنب');
+    protected $format_D = array(self::SUNDAY => 'یکشنبه', self::MONDAY => 'دوشنبه', self::TUESDAY => 'سه‌شنبه', self::WEDNESDAY => 'چهارشنبه', self::THURSDAY => 'پنج‌شنبه', self::FRIDAY => 'جمعه', self::SATURDAY => 'شنبه');
 
     /**
      * Month names
@@ -73,7 +74,8 @@ class WPSH_Jalali extends WPSH_DateAbstract
      *
      * @var array
      */
-    protected $format_M = array('فرو', 'ارد', 'خرد', 'تیر', 'مرد', 'شهر', 'مهر', 'آبا', 'آذر', 'دی', 'بهم', 'اسف');
+    //protected $format_M = array('فرو', 'ارد', 'خرد', 'تیر', 'مرد', 'شهر', 'مهر', 'آبا', 'آذر', 'دی', 'بهم', 'اسف');
+      protected $format_M = array('فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند');
 
     /**
      * @param string|null $time
@@ -101,6 +103,24 @@ class WPSH_Jalali extends WPSH_DateAbstract
         parent::setDate($year, $month, $day);
 
         return $this;
+    }
+
+    /**
+     * @return \WpshDate\WPSH_Date
+     */
+    public function toGregorian()
+    {
+        return new WPSH_Date(parent::format(parent::ATOM), parent::getTimezone());
+    }
+
+    /**
+     * An aliases for toGregorian method
+     *
+     * @return \WpshDate\WPSH_Date
+     */
+    public function tog()
+    {
+        return $this->toGregorian();
     }
 
     /**
