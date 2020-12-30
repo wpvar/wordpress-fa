@@ -181,3 +181,10 @@
   width: 100% !important;
   margin: 40px 0;
 }
+
+#njj {
+  padding: 6px 1px;
+  font-size: 12px;
+  line-height: 1.16666666;
+  width: 2em;
+}
