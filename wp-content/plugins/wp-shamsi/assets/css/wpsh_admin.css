@@ -65,8 +65,12 @@
   padding-bottom: 15px;
 }
 
-.wpsh_newsletter_settings {
-  padding-top: 15px;
+.wpsh_newsletter_settings input, .wpsh_newsletter_settings a, .wpsh_newsletter_settings label {
+  margin: 15px 2px 2px 2px !important;
+}
+
+.wpsh_newsletter input, .wpsh_newsletter a, .wpsh_newsletter label, .wpsh_newsletter button  {
+  margin: 15px 2px 2px 2px !important;
 }
 
 .wpsh_newsletter_settings #wpsh_form_settings {
@@ -105,8 +109,17 @@
   margin-bottom: 0;
 }
 
-.wpsh_newsletter_settings #wpsh_email_settings {
+.wpsh_newsletter_settings #wpsh_email_settings, .wpsh_newsletter_settings #wpsh_mobile_settings {
   max-width: 200px;
+}
+
+.wpsh_mobile_label {
+  padding-left: 5px;
+}
+
+.rtl .wpsh_mobile_label {
+  padding-right: 5px;
+  padding-left: 0 !important;
 }
 
 .rtl .notice .button {
@@ -448,103 +461,16 @@
   font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
-.toplevel_page_wpsh .scene {
-  position: relative;
-  width: 100%;
-  height: 20vh;
-  background: #23282d;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
-}
-
-.toplevel_page_wpsh .scene .rocket {
-  position: relative;
-  animation: animate 0.2s ease infinite;
-}
-
-.toplevel_page_wpsh .scene .rocket::before {
-  content: '';
-  position: absolute;
-  bottom: -200px;
-  right: 2.8vw;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 200px;
-  background: linear-gradient(#b1e4ff29, transparent);
-}
-
-.toplevel_page_wpsh .scene .rocket::after {
-  content: '';
-  position: absolute;
-  bottom: -200px;
-  right: 2.8vw;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 200px;
-  background: linear-gradient(#00d0ff, transparent);
-  filter: blur(20px);
-}
-
-.toplevel_page_wpsh .scene i {
-  position: absolute;
-  top: -250px;
-  background: rgba(255, 255, 255, 0.5);
-  animation: animateStars linear infinite;
-}
-
-.toplevel_page_wpsh .rocket {
-  width: 58vw;
-  float: right;
-}
-
-.toplevel_page_wpsh .rocket-title {
-  display: block;
-  color: #fff;
-  position: absolute;
-  font-size: 2.5vw;
-}
-
-.toplevel_page_wpsh .rocket img {
-  width: 7vw;
-}
-
-.toplevel_page_wpsh #wpvarNetBannerChild .rocket {
-  width: 64vw;
-}
-
-.wpvarnet .exopite-sof-before {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.wpvarnet ul {
-  list-style: inside;
-}
-
-.wpvarnet {
-  text-align: justify;
-}
-
-.wp-admin .wpvarnet-intro {
-  background: #dbfdee;
-  border: none;
-  font-size: 14px;
-}
-
-.wpvarnet-intro a {
-  text-decoration: none;
-}
-
 .wp-admin .exopite-sof-field .exopite-sof-notice, .wp-admin .exopite-sof-section>.exopite-sof-field {
   border: none;
 }
 
+.exopite-sof-notice {
+  line-height: 1.6;
+}
+
 .wpsh-ribbon {
-  width: 200px;
+  width: 160px;
   height: 28px;
   color: #fff;
   text-decoration: none;
@@ -555,7 +481,7 @@
   border-radius: 0px 5px 5px 0px;
   position: absolute;
   left: -1px;
-  background: #486580;
+  background: #d63637;
   transition: 0.3s;
 }
 
@@ -609,6 +535,43 @@
   border-radius: 5px 0 0 5px;
 }
 
+.wpsh-ribbon_courses {
+  padding-left: 0px !important;
+  border-radius: 5px 0 0 5px !important;
+  right: -1px !important;
+  background: #486580 !important;
+  width: 150px !important;
+}
+
+.wpsh-ribbon:hover {
+  background: #32475c !important;
+}
+
+.wpsh-ribbon_courses .dashicons {
+  padding-top: 5px !important;
+}
+
+.wpsh-ribbon_courses::before {
+  right: -6.5px !important;
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.wpsh-ribbon_courses::after {
+  right: -4.5px !important;
+  border-radius: 5px 5px 0 0 !important;
+
+}
+
+.wpsh-redirect {
+  height: 50px !important;
+}
+
+
+.wpvar-courses {
+  font-weight: bold;
+  color: #d63637;
+}
+
 @keyframes animateStars {
   0% {
     transform: translateY(0);
@@ -643,5 +606,16 @@
   .wpsh-feutures__list_left {
     float: inherit;
     margin: 0 auto 45px auto;
+  }
+  .wpsh_newsletter label, .wpsh_newsletter input {
+    display: block;
+  }
+  .exopite-sof-field .button.button-primary, .exopite-sof-field .exopite-sof-btn {
+    line-height: 37px !important;
+  }
+}
+@media only screen and (max-width: 1247px) {
+  .wpsh_newsletter_settings label, .wpsh_newsletter_settings input {
+    display: block;
   }
 }

@@ -45,7 +45,8 @@ jQuery(document).ready(function () {
     } else {
       var link = jQuery('#wpsh_newsletter_settings').val();
       var email = jQuery('#wpsh_email_settings').val();
-      window.location.replace(link + '&wpsh_newsletter_settings=' + email);
+      var mobile = jQuery('#wpsh_mobile_settings').val();
+      window.location.replace(link + '&wpsh_newsletter_settings=' + email + '&wpsh_mobile_settings=' + mobile);
       e.preventDefault();
     }
   });
@@ -57,7 +58,6 @@ jQuery(document).ready(function () {
       return false;
     }
   });
-
   jQuery('.notice-wpsh-pro .notice-dismiss').on('click', function () {
     var check = confirm('آیا مطمئن هستید؟');
     if (check === false) {
@@ -71,38 +71,19 @@ jQuery(document).ready(function () {
       }
     });
   });
-
-  if (jQuery('#wpvarNetBanner').length > 0) {
-    wpvarNetStars('1');
+  if (jQuery('.wpsh-radio input') !== null) {
+    jQuery(document).mousemove(function (event) {
+      jQuery('.wpsh-radio input').each(function () {
+        status = jQuery(this).data('radio-status');
+        if (status == 'disabled') {
+          jQuery(this).attr('disabled', 'disabled');
+        }
+      });
+    });
   }
-  if (jQuery('#wpvarNetBannerChild').length > 0) {
-    wpvarNetStars('2');
-  }
+  jQuery('#wpsh_mobile_settings').keyup(function (e) {
+    if (/\D/g.test(this.value)) {
+      this.value = this.value.replace(/\D/g, '');
+    }
+  });
 });
-
-function wpvarNetStars(element) {
-  let count = 50;
-  let query = element;
-  if(query == '1') {
-    var scene = document.querySelector('#wpvarNetBanner');
-  }
-  if(query == '2') {
-    var scene = document.querySelector('#wpvarNetBannerChild');
-  }
-  let i = 0;
-  while (i < count) {
-    let star = document.createElement("i");
-    let x = Math.floor(Math.random() * screen.width);
-
-    let duration = Math.random() * 1;
-    let h = Math.random() * 100;
-
-    star.style.left = x + "px";
-    star.style.width = 1 + "px";
-    star.style.height = h + "px";
-    star.style.animationDuration = duration + "s";
-
-    scene.appendChild(star);
-    i++;
-  }
-}
