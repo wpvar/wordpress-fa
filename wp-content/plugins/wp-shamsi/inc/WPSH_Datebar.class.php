@@ -25,11 +25,7 @@ class WPSH_Datebar extends WPSH_Core
      */
     function __construct()
     {
-
-        add_action('admin_bar_menu', array(
-            $this,
-            'date_bar'
-        ), 1000);
+        add_action('admin_bar_menu', array($this, 'date_bar'), 1000);
     }
 
     /**
@@ -44,6 +40,12 @@ class WPSH_Datebar extends WPSH_Core
     public function date_bar($wp_admin_bar)
     {
         if (!parent::option('admin-bar-date', true, true) || parent::option('activate-admin-shamsi', true, false) || !parent::option('activate-shamsi', true, true)) {
+            return;
+        }
+
+        $active = apply_filters('wpsh_admin_bar', true);
+
+        if($active === false) {
             return;
         }
 
